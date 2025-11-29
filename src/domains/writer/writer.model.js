@@ -6,6 +6,18 @@ const writerSchema = new mongoose.Schema({
     required: [true, 'Name is required'],
     trim: true,
     maxlength: [100, 'Name cannot be more than 100 characters']
+  },
+  email: {
+    type: String,
+    required: [true, 'Email is required'],
+    unique: true,
+    trim: true,
+    lowercase: true
+  },
+  password: {
+    type: String,
+    required: [true, 'Password is required'],
+    minlength: [6, 'Password must be at least 6 characters']
   }
 }, {
   timestamps: true
